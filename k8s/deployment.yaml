@@ -18,8 +18,8 @@ spec:
         kubernetes.io/hostname: main
       containers:
         - name: hello-world-api
-          image: docker.io/library/hello-world-api:arm64
-          imagePullPolicy: Never
+          image: ghcr.io/PLACEHOLDER:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
           resources:
