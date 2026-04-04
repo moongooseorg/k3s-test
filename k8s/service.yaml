@@ -8,7 +8,7 @@ spec:
     app: ${APP_NAME}
   ports:
     - protocol: TCP
-      port: ${SERVICE_PORT}
-      targetPort: ${CONTAINER_PORT}
+      port: 80
+      targetPort: 8080
       nodePort: ${NODE_PORT}
   type: NodePort

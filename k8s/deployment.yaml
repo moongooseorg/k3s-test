@@ -20,7 +20,7 @@ spec:
           image: ghcr.io/${IMAGE_NAME}:${SHORT_SHA}
           imagePullPolicy: Always
           ports:
-            - containerPort: ${CONTAINER_PORT}
+            - containerPort: 8080
           resources:
             requests:
               memory: "64Mi"
