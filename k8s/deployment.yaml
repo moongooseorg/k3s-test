@@ -1,25 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-world-api
+  name: ${APP_NAME}
+  namespace: ${NAMESPACE}
   labels:
-    app: hello-world-api
+    app: ${APP_NAME}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hello-world-api
+      app: ${APP_NAME}
   template:
     metadata:
       labels:
-        app: hello-world-api
+        app: ${APP_NAME}
     spec:
       containers:
-        - name: hello-world-api
-          image: ghcr.io/PLACEHOLDER:latest
+        - name: ${APP_NAME}
+          image: ghcr.io/${IMAGE_NAME}:${SHORT_SHA}
           imagePullPolicy: Always
           ports:
-            - containerPort: 8080
+            - containerPort: ${CONTAINER_PORT}
           resources:
             requests:
               memory: "64Mi"
