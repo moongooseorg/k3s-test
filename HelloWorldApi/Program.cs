@@ -1,8 +1,9 @@
-using Humanizer;
+using Bogus;
 
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-app.MapGet("/hello", () => new { message = "Hello, World!", timestamp = DateTime.UtcNow, uptime = (DateTime.UtcNow - System.Diagnostics.Process.GetCurrentProcess().StartTime.ToUniversalTime()).Humanize() });
+var faker = new Faker();
+app.MapGet("/hello", () => new { message = "Hello, World!", timestamp = DateTime.UtcNow, funFact = faker.Hacker.Phrase() });
 
 app.Run();
